@@ -573,7 +573,7 @@ var NativeGlassBridge = {
 };
 
 var ZoteroGlass = {
-  version: "0.2.47",
+  version: "0.2.48",
   pluginID: "zotero-glass@avi7ii.github.io",
   menuID: "zotero-glass-menuitem",
   separatorID: "zotero-glass-menuseparator",

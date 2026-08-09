@@ -191,6 +191,50 @@
   background-color: rgba(255, 255, 255, 0.10) !important;
 }
 
+/* Awesome GPT uses plugin-specific floating, sidebar, and standalone roots
+   instead of the shared ztoolkit prompt container. Keep those roots locally
+   readable without making the rest of Zotero more opaque. */
+:root[zotero-glass-active="true"] #zotero-gpt-container,
+:root[zotero-glass-active="true"] #zotero-GPT-container,
+:root[zotero-glass-active="true"] #Zotero-GPT-container,
+#zoterogpt-standalone {
+  --material-background: rgba(255, 255, 255, 0.055) !important;
+  --material-background70: rgba(255, 255, 255, 0.045) !important;
+  --material-stripe: rgba(255, 255, 255, 0.055) !important;
+  --material-toolbar: rgba(255, 255, 255, 0.075) !important;
+  --color-background: rgba(24, 27, 29, 0.94) !important;
+  -moz-appearance: none !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+    rgba(16, 19, 21, 0.86) !important;
+  background-color: rgba(16, 19, 21, 0.86) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(42px) saturate(1.30) !important;
+  -webkit-backdrop-filter: blur(42px) saturate(1.30) !important;
+}
+
+#zoterogpt-standalone #zoterogpt-panel,
+#zoterogpt-standalone translator-plugin-panel {
+  --material-background: rgba(255, 255, 255, 0.055) !important;
+  --material-background70: rgba(255, 255, 255, 0.045) !important;
+  --material-stripe: rgba(255, 255, 255, 0.055) !important;
+  --material-toolbar: rgba(255, 255, 255, 0.075) !important;
+}
+
+:root[zotero-glass-active="true"] #gpt-side-panel {
+  --material-background: rgba(255, 255, 255, 0.055) !important;
+  --material-background70: rgba(255, 255, 255, 0.045) !important;
+  --material-stripe: rgba(255, 255, 255, 0.055) !important;
+  --material-toolbar: rgba(255, 255, 255, 0.075) !important;
+  --color-background: rgba(24, 27, 29, 0.94) !important;
+  -moz-appearance: none !important;
+  background-color: rgba(16, 19, 21, 0.82) !important;
+  border-inline-start: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(42px) saturate(1.30) !important;
+  -webkit-backdrop-filter: blur(42px) saturate(1.30) !important;
+}
+
 :root[zotero-glass-active="true"] .virtualized-table .row.selected,
 :root[zotero-glass-active="true"] treechildren::-moz-tree-row(selected) {
   background-color: color-mix(in srgb, AccentColor 80%, transparent) !important;

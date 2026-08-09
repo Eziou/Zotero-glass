@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.48 - 2026-08-09
+
+- Added readable glass surfaces for Awesome GPT's floating prompt, side panel, and standalone window without making them opaque.
+- Scoped Awesome GPT material variables locally so its messages and controls sit on subtle inner surfaces instead of stacking additional opaque dark layers.
+
 ## 0.2.47 - 2026-07-23
 
 - Prevented a native AppKit crash by limiting content-border suppression to the supported bottom edge of Zotero's non-textured main window.
