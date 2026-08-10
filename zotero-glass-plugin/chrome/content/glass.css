@@ -235,6 +235,88 @@
   -webkit-backdrop-filter: blur(42px) saturate(1.30) !important;
 }
 
+/* Awesome GPT 3.1.8 resolves its UI text through Zotero fill variables and
+   its Markdown text through GitHub's modern semantic palette. Define both on
+   the plugin's own surfaces so a forced-dark Zotero window does not inherit
+   the host OS light palette. */
+:root[zotero-glass-active="true"] #zotero-gpt-container,
+:root[zotero-glass-active="true"] #gpt-side-panel,
+#zoterogpt-standalone {
+  color-scheme: dark !important;
+  --fill-primary: rgba(255, 255, 255, 0.94) !important;
+  --fill-secondary: rgba(255, 255, 255, 0.72) !important;
+  --fill-tertiary: rgba(255, 255, 255, 0.52) !important;
+  --fill-quarternary: rgba(255, 255, 255, 0.16) !important;
+}
+
+:root[zotero-glass-active="true"] #zotero-gpt-container .markdown-body,
+:root[zotero-glass-active="true"] #gpt-side-panel .markdown-body,
+#zoterogpt-standalone .markdown-body {
+  color-scheme: dark !important;
+  --fgColor-accent: #4493f8 !important;
+  --fgColor-attention: #d29922 !important;
+  --fgColor-danger: #f85149 !important;
+  --fgColor-default: #f0f6fc !important;
+  --fgColor-done: #ab7df8 !important;
+  --fgColor-muted: #aab2bd !important;
+  --fgColor-success: #3fb950 !important;
+  --bgColor-attention-muted: #bb800926 !important;
+  --bgColor-default: #0d1117 !important;
+  --bgColor-muted: #151b23 !important;
+  --bgColor-neutral-muted: #656c7633 !important;
+  --borderColor-accent-emphasis: #1f6feb !important;
+  --borderColor-attention-emphasis: #9e6a03 !important;
+  --borderColor-danger-emphasis: #da3633 !important;
+  --borderColor-default: #3d444d !important;
+  --borderColor-done-emphasis: #8957e5 !important;
+  --borderColor-muted: #3d444db3 !important;
+  --borderColor-neutral-muted: #3d444db3 !important;
+  --borderColor-success-emphasis: #238636 !important;
+  --focus-outlineColor: #1f6feb !important;
+  --color-prettylights-syntax-brackethighlighter-angle: #9198a1 !important;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #f85149 !important;
+  --color-prettylights-syntax-carriage-return-bg: #b62324 !important;
+  --color-prettylights-syntax-carriage-return-text: #f0f6fc !important;
+  --color-prettylights-syntax-comment: #9198a1 !important;
+  --color-prettylights-syntax-constant: #79c0ff !important;
+  --color-prettylights-syntax-constant-other-reference-link: #a5d6ff !important;
+  --color-prettylights-syntax-entity: #d2a8ff !important;
+  --color-prettylights-syntax-entity-tag: #7ee787 !important;
+  --color-prettylights-syntax-keyword: #ff7b72 !important;
+  --color-prettylights-syntax-markup-bold: #f0f6fc !important;
+  --color-prettylights-syntax-markup-changed-bg: #5a1e02 !important;
+  --color-prettylights-syntax-markup-changed-text: #ffdfb6 !important;
+  --color-prettylights-syntax-markup-deleted-bg: #67060c !important;
+  --color-prettylights-syntax-markup-deleted-text: #ffdcd7 !important;
+  --color-prettylights-syntax-markup-heading: #4493f8 !important;
+  --color-prettylights-syntax-markup-ignored-bg: #1158c7 !important;
+  --color-prettylights-syntax-markup-ignored-text: #f0f6fc !important;
+  --color-prettylights-syntax-markup-inserted-bg: #033a16 !important;
+  --color-prettylights-syntax-markup-inserted-text: #aff5b4 !important;
+  --color-prettylights-syntax-markup-italic: #f0f6fc !important;
+  --color-prettylights-syntax-markup-list: #f2cc60 !important;
+  --color-prettylights-syntax-meta-diff-range: #d2a8ff !important;
+  --color-prettylights-syntax-storage-modifier-import: #f0f6fc !important;
+  --color-prettylights-syntax-string: #a5d6ff !important;
+  --color-prettylights-syntax-string-regexp: #7ee787 !important;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #3d444d !important;
+  --color-prettylights-syntax-variable: #ffa657 !important;
+}
+
+:root[zotero-glass-active="true"] #zotero-gpt-container :is(textarea, input, .gpt-select, [contenteditable="true"]),
+:root[zotero-glass-active="true"] #gpt-side-panel :is(textarea, input, .gpt-select, [contenteditable="true"]),
+#zoterogpt-standalone :is(textarea, input, .gpt-select, [contenteditable="true"]) {
+  color: var(--fill-primary) !important;
+  caret-color: AccentColor !important;
+}
+
+:root[zotero-glass-active="true"] #zotero-gpt-container :is(textarea, input)::placeholder,
+:root[zotero-glass-active="true"] #gpt-side-panel :is(textarea, input)::placeholder,
+#zoterogpt-standalone :is(textarea, input)::placeholder {
+  color: var(--fill-secondary) !important;
+  opacity: 1 !important;
+}
+
 :root[zotero-glass-active="true"] .virtualized-table .row.selected,
 :root[zotero-glass-active="true"] treechildren::-moz-tree-row(selected) {
   background-color: color-mix(in srgb, AccentColor 80%, transparent) !important;

@@ -331,6 +331,30 @@ class NativeGlassPluginTests(unittest.TestCase):
         self.assertIn("backdrop-filter: blur(42px)", compatibility)
         self.assertNotIn("background-color: transparent", compatibility)
 
+    def test_modern_awesome_gpt_uses_a_scoped_dark_semantic_palette(self):
+        css = (PLUGIN / "chrome/content/glass.css").read_text()
+        compatibility = css.split(
+            "/* Awesome GPT uses plugin-specific floating, sidebar, and standalone roots", 1
+        )[1].split(
+            ':root[zotero-glass-active="true"] .virtualized-table .row.selected,', 1
+        )[0]
+
+        for token in [
+            "Awesome GPT 3.1.8 resolves its UI text",
+            "color-scheme: dark !important",
+            "--fill-primary: rgba(255, 255, 255, 0.94) !important",
+            "--fgColor-default: #f0f6fc !important",
+            "--fgColor-muted: #aab2bd !important",
+            "--color-prettylights-syntax-comment: #9198a1 !important",
+            ':is(textarea, input, .gpt-select, [contenteditable="true"])',
+        ]:
+            with self.subTest(token=token):
+                self.assertIn(token, compatibility)
+
+        self.assertNotIn("#output-container", compatibility)
+        self.assertNotIn("#374151", compatibility)
+        self.assertNotIn("filter: invert(", compatibility)
+
     def test_pdf_original_preview_feature_is_removed(self):
         source = (PLUGIN / "chrome/content/zoteroGlass.js").read_text()
         css = (PLUGIN / "chrome/content/glass.css").read_text()

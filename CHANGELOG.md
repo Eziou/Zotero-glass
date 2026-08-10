@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.49 - 2026-08-10
+
+- Added a scoped dark semantic palette for Awesome GPT 3.1.8 so its prompt, response, Markdown, and code text remain readable on glass surfaces.
+- Kept Awesome GPT's colored actions and semantic syntax highlighting intact without legacy selectors, global inversion, or polling.
+
 ## 0.2.48 - 2026-08-09
 
 - Added readable glass surfaces for Awesome GPT's floating prompt, side panel, and standalone window without making them opaque.
