@@ -9,7 +9,7 @@ const source = fs.readFileSync(
   "utf8"
 );
 
-function createFixture() {
+function createFixture(modern = false) {
   const context = vm.createContext({});
   vm.runInContext(source, context, { filename: "zoteroGlass.js" });
   const glass = context.ZoteroGlass;
@@ -18,11 +18,26 @@ function createFixture() {
   let pluginObserver = null;
 
   const itemTreePrototype = {
-    _renderCell(_index, _data, column) {
+    _renderCell(index, data, column, isFirstColumn) {
+      if (modern) {
+        return this.getRow(index).renderCell(index, data, column, isFirstColumn, this._renderCtx);
+      }
       return { dataKey: column.dataKey };
     },
   };
   const itemTreeModule = { prototype: itemTreePrototype };
+  const renderCalls = [];
+  // In Zotero 10, the collection view inherits _renderCell from ItemTree,
+  // and the base method delegates ordinary cells to the row subclass.
+  const collectionViewPrototype = Object.create(itemTreePrototype);
+  const view = Object.create(collectionViewPrototype);
+  view._renderCtx = { id: "row-render-context" };
+  view.getRow = index => ({
+    renderCell(...args) {
+      renderCalls.push(args);
+      return { dataKey: args[2].dataKey, rowIndex: index };
+    },
+  });
   let invalidations = 0;
   const visibleCells = {
     "#zotero-items-tree .cell.zoterostyle-status": [{ id: "visible-status" }],
@@ -44,13 +59,13 @@ function createFixture() {
       return itemTreeModule;
     },
     ZoteroPane: {
-      itemsView: {
+      itemsView: Object.assign(view, {
         tree: {
           invalidate() {
             invalidations += 1;
           },
         },
-      },
+      }),
     },
   };
 
@@ -95,6 +110,10 @@ function createFixture() {
     decorations,
     invalidations: () => invalidations,
     itemTreePrototype,
+    collectionViewPrototype,
+    view,
+    win,
+    renderCalls,
     pluginObserver: () => pluginObserver,
   };
 }
@@ -131,6 +150,41 @@ function createFixture() {
   assert.equal(fixture.pluginObserver(), null);
   fixture.itemTreePrototype._renderCell(0, "", { dataKey: "zoterostyle-status" });
   assert.equal(fixture.decorations.length, beforeStop);
+}
+
+{
+  const fixture = createFixture(true);
+  const originalRenderer = fixture.itemTreePrototype._renderCell;
+  fixture.glass.startStyleTagIntegration();
+  const column = { dataKey: "zoterostyle-status", custom: true };
+  const data = 'unread\n{"tag":"/unread","color":"#6fafdb"}';
+  const cell = fixture.view._renderCell(2, data, column, false);
+  assert.equal(cell.decoratedByGlass, "status");
+  assert.deepEqual(fixture.renderCalls[0], [2, data, column, false, fixture.view._renderCtx]);
+  assert.equal(Object.hasOwn(fixture.collectionViewPrototype, "_renderCell"), false);
+  // A column outside Style remains untouched. Non-item library header/spacer
+  // rows are reconciled by DOM selectors without being read as Zotero items.
+  const plain = fixture.view._renderCell(0, "Library", { dataKey: "title" }, true);
+  assert.equal(plain.decoratedByGlass, undefined);
+  fixture.view.getRow = () => { throw new Error("Must not inspect header/spacer rows"); };
+  assert.equal(fixture.glass.refreshStyleTagIntegration("multi-selection").cells, 3);
+  assert.equal(fixture.invalidations(), 1);
+  assert.equal(fixture.glass.removeStyleTagRenderHook(fixture.win), true);
+  assert.equal(fixture.view._renderCell, originalRenderer);
+  assert.equal(fixture.glass.styleRenderHooks.size, 0);
+  fixture.glass.stopStyleTagIntegration();
+}
+
+{
+  const fixture = createFixture(true);
+  fixture.glass.startStyleTagIntegration();
+  const glassWrapper = fixture.itemTreePrototype._renderCell;
+  const laterWrapper = function (...args) { return glassWrapper.apply(this, args); };
+  fixture.itemTreePrototype._renderCell = laterWrapper;
+  fixture.glass.stopStyleTagIntegration();
+  assert.equal(fixture.itemTreePrototype._renderCell, laterWrapper);
+  const cell = fixture.view._renderCell(1, "", { dataKey: "zoterostyle-status" }, false);
+  assert.equal(cell.decoratedByGlass, undefined);
 }
 
 {

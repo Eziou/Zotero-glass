@@ -91,10 +91,10 @@ class NativeGlassPluginTests(unittest.TestCase):
         self.assertEqual(manifest["applications"]["zotero"]["id"], "zotero-glass@avi7ii.github.io")
         self.assertEqual(
             manifest["applications"]["zotero"]["update_url"],
-            "https://raw.githubusercontent.com/Avi7ii/Zotero-glass/main/updates.json",
+            "https://raw.githubusercontent.com/Eziou/Zotero-glass/main/updates.json",
         )
         self.assertEqual(manifest["applications"]["zotero"]["strict_min_version"], "9.0")
-        self.assertEqual(manifest["applications"]["zotero"]["strict_max_version"], "9.*")
+        self.assertEqual(manifest["applications"]["zotero"]["strict_max_version"], "10.0.*")
 
     def test_update_manifest_matches_release_metadata(self):
         manifest = json.loads((PLUGIN / "manifest.json").read_text())
@@ -105,7 +105,7 @@ class NativeGlassPluginTests(unittest.TestCase):
         self.assertEqual(entry["version"], manifest["version"])
         self.assertEqual(
             entry["update_link"],
-            f"https://github.com/Avi7ii/Zotero-glass/releases/download/"
+            f"https://github.com/Eziou/Zotero-glass/releases/download/"
             f"v{manifest['version']}/Zotero-Glass-{manifest['version']}.xpi",
         )
         self.assertRegex(entry["update_hash"], re.compile(r"^sha256:[0-9a-f]{64}$"))
