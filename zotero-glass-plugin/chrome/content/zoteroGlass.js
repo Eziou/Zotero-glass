@@ -573,7 +573,7 @@ var NativeGlassBridge = {
 };
 
 var ZoteroGlass = {
-  version: "0.2.49",
+  version: "0.2.50",
   pluginID: "zotero-glass@avi7ii.github.io",
   menuID: "zotero-glass-menuitem",
   separatorID: "zotero-glass-menuseparator",
@@ -1263,6 +1263,8 @@ body.sidebar-open #sidebarContainer {
   installStyleTagRenderHook(win) {
     let prototype = null;
     try {
+      // Zotero 10 keeps _renderCell on ItemTree; CollectionViewItemTree inherits it.
+      // Wrapping the base preserves custom column renderers and row subclasses.
       prototype = win?.require?.("zotero/itemTree")?.prototype;
     } catch (error) {
       this.log("Style item-tree module unavailable: " + error);
