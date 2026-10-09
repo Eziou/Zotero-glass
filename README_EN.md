@@ -4,7 +4,9 @@
 
 # Zotero Glass
 
-### Native glass materials for Zotero on macOS
+#This fork is based on [Avi7ii/Zotero-glass](https://github.com/Avi7ii/Zotero-glass) and adds Zotero 10.0.x compatibility. Original author credit and add-on ID are retained; the homepage and update feed point to Eziou’s repository.
+
+## Native glass materials for Zotero on macOS
 ### Let Zotero feel at home on the Mac
 
 <a href="README.md">
@@ -13,15 +15,15 @@
 
 <br><br>
 
-[![Release](https://img.shields.io/github/v/release/Avi7ii/Zotero-glass?style=for-the-badge&color=6f5cff)](https://github.com/Avi7ii/Zotero-glass/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/Avi7ii/Zotero-glass/total?style=for-the-badge&color=0ea5e9)](https://github.com/Avi7ii/Zotero-glass/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/Avi7ii/Zotero-glass/ci.yml?style=for-the-badge&label=Build)](https://github.com/Avi7ii/Zotero-glass/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/Avi7ii/Zotero-glass?style=for-the-badge&color=f2c94c)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/Eziou/Zotero-glass?style=for-the-badge&color=6f5cff)](https://github.com/Eziou/Zotero-glass/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Eziou/Zotero-glass/total?style=for-the-badge&color=0ea5e9)](https://github.com/Eziou/Zotero-glass/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/Eziou/Zotero-glass/ci.yml?style=for-the-badge&label=Build)](https://github.com/Eziou/Zotero-glass/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Eziou/Zotero-glass?style=for-the-badge&color=f2c94c)](LICENSE)
 
 [![macOS](https://img.shields.io/badge/macOS-native_glass-111111?style=flat-square&logo=apple)](https://www.apple.com/macos/)
-[![Zotero](https://img.shields.io/badge/Zotero-9.x-CC2936?style=flat-square)](https://www.zotero.org/)
+[![Zotero](https://img.shields.io/badge/Zotero-9.x%20%2F%2010.x-CC2936?style=flat-square)](https://www.zotero.org/)
 [![Theme](https://img.shields.io/badge/Theme-Dark_only-222222?style=flat-square)](#important)
-[![Stars](https://img.shields.io/github/stars/Avi7ii/Zotero-glass?style=flat-square&color=ffb000)](https://github.com/Avi7ii/Zotero-glass/stargazers)
+[![Stars](https://img.shields.io/github/stars/Eziou/Zotero-glass?style=flat-square&color=ffb000)](https://github.com/Eziou/Zotero-glass/stargazers)
 ![Views](https://komarev.com/ghpvc/?username=Avi7ii&repo=Zotero-glass&label=Views&color=7c5cff&style=flat-square)
 
 <br>
@@ -30,7 +32,7 @@
 
 <br>
 
-<a href="https://github.com/Avi7ii/Zotero-glass/releases/latest">
+<a href="https://github.com/Eziou/Zotero-glass/releases/latest">
   <img src="https://img.shields.io/badge/Download-Latest_XPI-147EFB?style=for-the-badge&logo=github&logoColor=white" height="42" alt="Download latest XPI">
 </a>
 
@@ -114,7 +116,7 @@ The native view performs window-level background sampling and blur. Scoped plugi
 | Item | Requirement |
 | :--- | :--- |
 | Operating system | macOS |
-| Zotero | 9.x |
+| Zotero | 9.x / 10.0.x |
 | Theme | Dark only; enabled automatically while the plugin is active |
 | Processor | Apple Silicon or Intel Mac |
 | Helper process | None |
@@ -126,7 +128,7 @@ Windows and Linux are not currently supported. Matching those platforms requires
 
 ## Installation
 
-1. Download the latest `Zotero-Glass-*.xpi` from [Releases](https://github.com/Avi7ii/Zotero-glass/releases/latest).
+1. Download the latest `Zotero-Glass-*.xpi` from [Releases](https://github.com/Eziou/Zotero-glass/releases/latest).
 2. Open Zotero and go to **Tools > Plugins**.
 3. Open the gear menu and choose **Install Plugin From File**.
 4. Select the XPI and restart Zotero if requested.
@@ -156,7 +158,7 @@ Settings are stored at:
 ## Build from source
 
 ```bash
-git clone https://github.com/Avi7ii/Zotero-glass.git
+git clone https://github.com/Eziou/Zotero-glass.git
 cd Zotero-glass
 ./build.sh
 ```
@@ -199,10 +201,10 @@ Journal rankings and impact factors require Ethereal Style/EasyScholar. Zotero G
 
 Made for Zotero, backed by native AppKit.
 
-[Issues](https://github.com/Avi7ii/Zotero-glass/issues) · [Releases](https://github.com/Avi7ii/Zotero-glass/releases) · [Pull requests](https://github.com/Avi7ii/Zotero-glass/pulls)
+[Issues](https://github.com/Eziou/Zotero-glass/issues) · [Releases](https://github.com/Eziou/Zotero-glass/releases) · [Pull requests](https://github.com/Eziou/Zotero-glass/pulls)
 
 <br>
 
-![Star History](https://api.star-history.com/svg?repos=Avi7ii/Zotero-glass&type=Date)
+![Star History](https://api.star-history.com/svg?repos=Eziou/Zotero-glass&type=Date)
 
 </div>

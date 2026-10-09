@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.50 - 2026-10-09
+
+- User-reported runtime validation on Zotero 10 found no issues.
+
+- Declared Zotero 10.0.x compatibility while retaining Zotero 9 support.
+- Audited the Zotero 10 item-tree refactor: CollectionViewItemTree still inherits the base ItemTree cell renderer used by the Style integration.
+- Added regression scenarios for inherited item-tree renderers, row subclasses, multi-selection header/spacer rows, and hook cleanup.
+- Pointed the fork homepage and update feed to Eziou/Zotero-glass, retaining the original add-on ID so existing installations can upgrade.
+
 ## 0.2.49 - 2026-08-10
 
 - Added a scoped dark semantic palette for Awesome GPT 3.1.8 so its prompt, response, Markdown, and code text remain readable on glass surfaces.

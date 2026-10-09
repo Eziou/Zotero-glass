@@ -13,15 +13,15 @@
 
 <br><br>
 
-[![Release](https://img.shields.io/github/v/release/Avi7ii/Zotero-glass?style=for-the-badge&color=6f5cff)](https://github.com/Avi7ii/Zotero-glass/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/Avi7ii/Zotero-glass/total?style=for-the-badge&color=0ea5e9)](https://github.com/Avi7ii/Zotero-glass/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/Avi7ii/Zotero-glass/ci.yml?style=for-the-badge&label=Build)](https://github.com/Avi7ii/Zotero-glass/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/Avi7ii/Zotero-glass?style=for-the-badge&color=f2c94c)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/Eziou/Zotero-glass?style=for-the-badge&color=6f5cff)](https://github.com/Eziou/Zotero-glass/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Eziou/Zotero-glass/total?style=for-the-badge&color=0ea5e9)](https://github.com/Eziou/Zotero-glass/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/Eziou/Zotero-glass/ci.yml?style=for-the-badge&label=Build)](https://github.com/Eziou/Zotero-glass/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Eziou/Zotero-glass?style=for-the-badge&color=f2c94c)](LICENSE)
 
 [![macOS](https://img.shields.io/badge/macOS-native_glass-111111?style=flat-square&logo=apple)](https://www.apple.com/macos/)
-[![Zotero](https://img.shields.io/badge/Zotero-9.x-CC2936?style=flat-square)](https://www.zotero.org/)
+[![Zotero](https://img.shields.io/badge/Zotero-9.x%20%2F%2010.x-CC2936?style=flat-square)](https://www.zotero.org/)
 [![Theme](https://img.shields.io/badge/Theme-Dark_only-222222?style=flat-square)](#重要说明)
-[![Stars](https://img.shields.io/github/stars/Avi7ii/Zotero-glass?style=flat-square&color=ffb000)](https://github.com/Avi7ii/Zotero-glass/stargazers)
+[![Stars](https://img.shields.io/github/stars/Eziou/Zotero-glass?style=flat-square&color=ffb000)](https://github.com/Eziou/Zotero-glass/stargazers)
 ![Views](https://komarev.com/ghpvc/?username=Avi7ii&repo=Zotero-glass&label=Views&color=7c5cff&style=flat-square)
 
 <br>
@@ -30,7 +30,7 @@
 
 <br>
 
-<a href="https://github.com/Avi7ii/Zotero-glass/releases/latest">
+<a href="https://github.com/Eziou/Zotero-glass/releases/latest">
   <img src="https://img.shields.io/badge/Download-Latest_XPI-147EFB?style=for-the-badge&logo=github&logoColor=white" height="42" alt="Download latest XPI">
 </a>
 
@@ -43,6 +43,9 @@
 ---
 
 ## 重要说明
+
+此仓库基于 [Avi7ii/Zotero-glass](https://github.com/Avi7ii/Zotero-glass)，提供 Zotero 10.0.x 兼容版本。原作者署名和插件 ID 保留；主页与自动更新地址使用 Eziou 的仓库。
+
 
 > **仅适用于 macOS，且当前只适配 Zotero 暗色主题。**
 >
@@ -126,7 +129,7 @@ flowchart LR
 | 项目 | 要求 |
 | :--- | :--- |
 | 操作系统 | macOS |
-| Zotero | 9.x |
+| Zotero | 9.x / 10.0.x |
 | 主题 | 仅暗色主题；插件启用后自动切换 |
 | 处理器 | Apple Silicon 或 Intel Mac |
 | 额外进程 | 无 |
@@ -140,7 +143,7 @@ Windows 和 Linux 暂不支持。核心玻璃依赖 macOS AppKit；其他平台�
 
 ### 方式一：下载 Release
 
-1. 从 [Releases](https://github.com/Avi7ii/Zotero-glass/releases/latest) 下载最新的 `Zotero-Glass-*.xpi`。
+1. 从 [Releases](https://github.com/Eziou/Zotero-glass/releases/latest) 下载最新的 `Zotero-Glass-*.xpi`。
 2. 打开 Zotero，进入 **工具 > 插件**。
 3. 点击齿轮菜单，选择 **从文件安装插件**。
 4. 选择下载的 XPI，并按提示重启 Zotero。
@@ -150,7 +153,7 @@ Windows 和 Linux 暂不支持。核心玻璃依赖 macOS AppKit；其他平台�
 ### 方式二：从源码构建
 
 ```bash
-git clone https://github.com/Avi7ii/Zotero-glass.git
+git clone https://github.com/Eziou/Zotero-glass.git
 cd Zotero-glass
 ./build.sh
 ```
@@ -236,10 +239,10 @@ python3 -m unittest discover -s tests -v
 
 Made for Zotero, backed by native AppKit.
 
-[报告问题](https://github.com/Avi7ii/Zotero-glass/issues) · [查看版本](https://github.com/Avi7ii/Zotero-glass/releases) · [参与贡献](https://github.com/Avi7ii/Zotero-glass/pulls)
+[报告问题](https://github.com/Eziou/Zotero-glass/issues) · [查看版本](https://github.com/Eziou/Zotero-glass/releases) · [参与贡献](https://github.com/Eziou/Zotero-glass/pulls)
 
 <br>
 
-![Star History](https://api.star-history.com/svg?repos=Avi7ii/Zotero-glass&type=Date)
+![Star History](https://api.star-history.com/svg?repos=Eziou/Zotero-glass&type=Date)
 
 </div>
